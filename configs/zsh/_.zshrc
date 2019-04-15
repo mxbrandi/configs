@@ -216,21 +216,14 @@ alias certinfo-text='openssl x509 -noout -text -in'
 alias csrinfo-text='openssl req -noout -text -in'
 alias youtube-dl-audio='youtube-dl -x --audio-format mp3'  # pip install youtube-dl
 
-#alias certinfo='openssl x509 -noout -serial -subject -issuer -startdate -enddate -fingerprint -in' # prints no key size, need a function:
 function certinfo() {
-  keysize=$(openssl x509 -noout -text -in "$@" | grep -i "Public-Key" | tr -d ' ')
+  text=$(openssl x509 -noout -text -in "$@")
+  keysize=$(echo "$text" | grep "Public-Key" | tr -d ' ')
+  keyusage=$(echo "$text" | grep "Key Usage" -A1 | tr -d ' ' | sed 's/X509v3//')
   certinfo=$(openssl x509 -noout -serial -subject -issuer -startdate -enddate -fingerprint -in "$@")
-  echo -e "$certinfo\n$keysize"
+  echo -e "$certinfo\n$keysize\n$keyusage"
 }
 
-#alias certinfo-full='openssl x509 -noout -serial -subject -issuer -startdate -enddate -fingerprint -purpose -in' # prints no key size, need a function:
-function certinfo-full() {
-  keysize=$(openssl x509 -noout -text -in "$@" | grep -i "Public-Key" | tr -d ' ')
-  certinfo=$(openssl x509 -noout -serial -subject -issuer -startdate -enddate -fingerprint -purpose -in "$@")
-  echo -e "$certinfo\n$keysize"
-}
-
-#alias csrinfo='openssl req -noout -subject -in' # prints no key size, need a function:
 function csrinfo() {
   keysize=$(openssl req -noout -text -in "$@" | grep -i "Public-Key" | tr -d ' ')
   csrinfo=$(openssl req -noout -subject -in "$@")

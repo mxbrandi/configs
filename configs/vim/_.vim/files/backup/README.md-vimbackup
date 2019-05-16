@@ -1,0 +1,6 @@
+# Setup
+Create link to use vim config from repo locally
+
+```
+ln -s _.vim ~/.vim
+```

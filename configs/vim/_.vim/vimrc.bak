@@ -26,7 +26,10 @@ set matchtime=3       " how many tenths of a second to blink matching brackets f
 "if &t_Co == 256
 "   colorscheme Tomorrow-Night
 "endif
-colorscheme darkblue 
+colorscheme elflord
+hi Search ctermbg=LightYellow
+hi Search ctermfg=Blue
+
 
 " WHITESPACE
 " ----------
@@ -85,6 +88,10 @@ nmap <F3> :set invlist list?<CR>
 nnoremap  :set cursorline! cursorcolumn!<CR>
 " execute content as bash script
 map <F5> :w<CR> :!bash %<CR>
+" execute content as python script
+map <F6> :w<CR> :!python %<CR>
+" execute content as nodejs script
+map <F7> :w<CR> :!node %<CR>
 
 " AUTOCMDS
 " --------

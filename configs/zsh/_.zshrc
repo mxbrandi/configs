@@ -244,5 +244,3 @@ function csrinfo() {
 # Neovim as default editor
 #VISUAL=nvim
 #EDITOR=nvim
-#
-#

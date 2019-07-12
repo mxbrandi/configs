@@ -197,10 +197,10 @@ bindkey '^ ' autosuggest-accept
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Aliases
-#alias ls='ls --color=auto'
-#alias ll='ls -lh'
-#alias l='ls -lh'
-#alias la='ls -lah'
+alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias l='ls -lah'
+alias la='ls -lah'
 alias i='yay -Sy'
 alias ui='yay -Rs'
 alias up='yay -Syu'

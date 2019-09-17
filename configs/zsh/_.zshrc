@@ -220,8 +220,9 @@ function certinfo() {
   text=$(openssl x509 -noout -text -in "$@")
   keysize=$(echo "$text" | grep "Public-Key" | tr -d ' ')
   keyusage=$(echo "$text" | grep "Key Usage" -A1 | tr -d ' ' | sed 's/X509v3//')
+  san=$(echo "$text" | grep "Subject Alternative Name" -A1 | tr -d ' ' | sed 's/X509v3//')
   certinfo=$(openssl x509 -noout -serial -subject -issuer -startdate -enddate -fingerprint -in "$@")
-  echo -e "$certinfo\n$keysize\n$keyusage"
+  echo -e "$certinfo\n$keysize\n$keyusage\n$san"
 }
 
 function csrinfo() {

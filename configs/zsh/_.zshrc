@@ -253,8 +253,8 @@ function csrinfo() {
 #  source $REMOTE_TERMINAL_COLOR; command zssh "$@"; source $TERMINAL_COLOR;
 #}
 
-# Neovim as default editor
-#VISUAL=nvim
-#EDITOR=nvim
+# vim as default editor
+VISUAL=vim
+EDITOR=vim
 #
 #

@@ -66,6 +66,10 @@ set undofile
 set undodir     =$HOME/.vim/files/undo/
 set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 
+" mouse visual mode (SHIFT deactivates and enambles to select text, e.g., for copying
+set mouse+=a
+
+
 " MAPPINGS
 " --------
 " toggle paste mode
